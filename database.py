@@ -6,7 +6,7 @@ import asyncio
 import os
 from config import ADMIN_ID
 
-DB_PATH = 'data/bot.db'
+DB_PATH = '/data/bot.db'
 
 def ensure_data_dir():
     if not os.path.exists('data'):
@@ -14,6 +14,8 @@ def ensure_data_dir():
 
 # Синхронные функции для инициализации
 def init_db():
+    ensure_data_dir()
+
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     
